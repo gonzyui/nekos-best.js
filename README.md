@@ -68,4 +68,4 @@ discordClient.login(
 
 ## Migration guide
 
-Please refer to [`./MIGRATION.md`](https://github.com/nekos-best/nekos-best.js/blob/main/MIGATION.md).
+Please refer to [MIGRATION.md](https://github.com/nekos-best/nekos-best.js/blob/main/MIGRATION.md).
