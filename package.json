@@ -1,11 +1,13 @@
 {
     "name": "nekos-best.js",
     "version": "6.5.0",
-    "description": "The official JavaScript wrapper for the https://nekos.best API with TypeScript typings.",
-    "types": "index.d.ts",
-    "files": [
-        "index.*"
-    ],
+    "author": "thunder04 (https://github.com/thunder04)",
+    "repository": "github:nekos-best/nekos-best.js",
+    "devDependencies": {
+        "@types/node": "^22.19.7",
+        "esbuild": "^0.25.12",
+        "typescript": "^5.9.3"
+    },
     "exports": {
         "import": {
             "types": "./index.d.ts",
@@ -16,13 +18,17 @@
             "default": "./index.js"
         }
     },
-    "license": "MIT",
     "bugs": "https://github.com/nekos-best/nekos-best.js/issues",
-    "author": "thunder04 (https://github.com/thunder04)",
-    "repository": "github:nekos-best/nekos-best.js",
     "contributors": [
         "oriel-beck (https://github.com/oriel-beck)",
         "Thusuzzee (https://github.com/Thusuzzee)"
+    ],
+    "description": "The official JavaScript wrapper for the https://nekos.best API with TypeScript typings.",
+    "engines": {
+        "node": ">=22"
+    },
+    "files": [
+        "index.*"
     ],
     "keywords": [
         "nekos",
@@ -32,20 +38,11 @@
         "roleplay",
         "rp"
     ],
+    "license": "MIT",
     "scripts": {
         "build": "bunx esbuild index.ts --outfile=index.js --platform=node --format=cjs --target=esnext",
         "types": "bunx tsc --emitDeclarationOnly",
         "prepack": "bun run build && bun run types"
     },
-    "dependencies": {
-        "node-fetch": "^3.3.2"
-    },
-    "devDependencies": {
-        "@types/node": "^22.19.7",
-        "esbuild": "^0.25.12",
-        "typescript": "^5.9.3"
-    },
-    "engines": {
-        "node": ">=22"
-    }
+    "types": "index.d.ts"
 }

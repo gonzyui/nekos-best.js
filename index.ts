@@ -1,8 +1,3 @@
-import type { RequestInfo, RequestInit } from "node-fetch";
-
-const fetch = (url: URL | RequestInfo, init?: RequestInit) =>
-    import("node-fetch").then(({ default: fetch }) => fetch(url, init));
-
 const IMAGE_CATEGORIES = ["kitsune", "neko", "husbando", "waifu"] as const;
 const GIF_CATEGORIES = [
     "angry",
@@ -215,11 +210,11 @@ export class Client {
     }
 }
 
-// The parameters are a bit ugly but who cares, it's a private function
+// The parameters are a bit ugly but who cares? It's a private function
 async function fetchPath(path?: string, fullUrl: Nullable<string> = null) {
     const url = fullUrl || `https://nekos.best/api/v2/${path}`;
     const response = await fetch(url, {
-        headers: { "User-Agent": "nekos-best.js / 6.0.0" },
+        headers: { "User-Agent": "nekos-best.js / 6.5.0" },
         redirect: "follow",
     });
 
