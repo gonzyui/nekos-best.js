@@ -1,7 +1,7 @@
 {
     "name": "nekos-best.js",
-    "version": "6.5.1",
-    "author": "thunder04 (https://github.com/thunder04)",
+    "version": "6.5.2",
+    "author": "Thund (https://github.com/thund-x)",
     "repository": "github:nekos-best/nekos-best.js",
     "devDependencies": {
         "@types/node": "^22.19.7",
