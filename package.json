@@ -2,7 +2,10 @@
     "name": "nekos-best.js",
     "version": "6.5.2",
     "author": "Thund (https://github.com/thund-x)",
-    "repository": "github:nekos-best/nekos-best.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nekos-best/nekos-best.js.git"
+    },
     "devDependencies": {
         "@types/node": "^22.19.7",
         "esbuild": "^0.25.12",
