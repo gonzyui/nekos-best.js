@@ -84,10 +84,14 @@ export type NbEndpointMetadata = Record<
 
 // NbResponse was taken :(
 export type NbIndividualResponse = {
+    anime_name?: string;
     artist_href?: string;
     artist_name?: string;
+    dimensions: {
+        width: number;
+        height: number;
+    };
     source_url?: string;
-    anime_name?: string;
     url: string;
 };
 
