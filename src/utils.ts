@@ -84,11 +84,7 @@ export async function handleRatelimit(
 ) {
     const now = Date.now();
 
-    if (data.resetsIn <= now) {
-        return;
-    }
-
-    if (data.remaining <= 0) {
+    if (data.remaining <= 0 && data.resetsIn > now) {
         const waitMs = data.resetsIn - now;
         switch (mode) {
             case "sleep":
