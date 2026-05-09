@@ -5,11 +5,21 @@
         "alwaysStrict": true,
         "skipLibCheck": true,
         "declaration": true,
+        "emitDeclarationOnly": true,
         "strict": true,
         "module": "commonjs",
         "target": "esnext",
+        "rootDir": "src",
+        "outDir": "dist",
         "types": [
             "node"
         ]
-    }
+    },
+    "files": [
+        "src/index.ts",
+        "src/client.ts",
+        "src/constants.ts",
+        "src/types.ts",
+        "src/utils.ts"
+    ]
 }

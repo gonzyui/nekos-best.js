@@ -23,28 +23,35 @@ Join the official Discord server **[here](https://nekos.best/discord?ref=js)**
 
 ## Installation
 
-`npm install nekos-best.js` | `yarn add nekos-best.js` | `pnpm install nekos-best.js` | `bun install nekos-best.js`
+`npm install nekos-best.js` | `yarn add nekos-best.js` | `pnpm install nekos-best.js` | `bun add nekos-best.js`
 
 ## Usage
 
 ```js
 import { Client, fetchRandom } from "nekos-best.js";
 
-// You can use the `fetchRandom()` function to fetch a random neko.
-console.log(await fetchRandom("neko")); // { results: [{ artist_href: '···', artist_name: '···', source_url: '···', url: 'https://nekos.best/api/v2/neko/XXXXX-XXXXX.png' }] }
+// You can use the `fetchRandom()` function to quickly fetch a random result.
+console.log(await fetchRandom("neko"));
 
 // Alternatively, you can initialize a new client which offers more features.
 const nekosBest = new Client();
 
-// Such as the `<Client>.fetch()` method.
-console.log(await nekosBest.fetch("neko", 1)); // { results: [{ artist_href: '···', artist_name: '···', source_url: '···', url: 'https://nekos.best/api/v2/neko/XXXXX-XXXXX.png' }] }
-console.log(await nekosBest.fetch("hug", 10)); // { results: [{ artist_href: '···', artist_name: '···', source_url: '···', url: 'https://nekos.best/api/v2/hug/XXXXX-XXXXX.gif' }, ···] }
+// You can configure rate limit handling behavior (default: "sleep").
+// "sleep" waits until the rate limit resets, "throw" rejects the promise immediately.
+const nekosBestStrict = new Client({ ratelimitHandleMode: "throw" }); // "sleep" (default) | "throw"
 
-// Or the `<Client>.fetchFile()` method to get a single file.
-console.log(await nekosBest.fetchFile("neko")); // { artist_href: '···', ···, data: <Buffer> }
+// Use the `<Client>.fetch()` method to fetch one or more results from a category.
+console.log(await nekosBest.fetch("neko", 1));
+console.log(await nekosBest.fetch("hug", 10));
+
+// Use the `<Client>.fetchFile()` method to fetch and download a single file along with its metadata.
+console.log(await nekosBest.fetchFile("neko"));
+
+// Use the `<Client>.search()` method to search for results by query.
+console.log(await nekosBest.search("cat", "neko", 5));
 ```
 
-### Build a simple Discord Bot with [`discord.js`](https://www.npmjs.com/package/discord.js)
+### Build a simple Discord Bot with [discord.js](https://www.npmjs.com/package/discord.js)
 
 ```js
 import { Client as DiscordClient } from "discord.js";
@@ -69,3 +76,4 @@ discordClient.login(
 ## Migration guide
 
 Please refer to [MIGRATION.md](https://github.com/nekos-best/nekos-best.js/blob/main/MIGRATION.md).
+
