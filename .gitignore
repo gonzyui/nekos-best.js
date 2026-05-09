@@ -1,4 +1,6 @@
 node_modules/
-index.d.ts
+dist/
 yarn.lock
-index.js
+pnpm-lock.yaml
+pnpm-workspace.yaml
+coverage/
