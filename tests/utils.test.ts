@@ -4,6 +4,8 @@ import {
     handleRatelimit,
     pickRandomCategory,
     validateCategory,
+    fetchPath,
+    fetchJson,
 } from "../src/utils";
 import { IMAGE_CATEGORIES, GIF_CATEGORIES } from "../src/constants";
 
@@ -107,8 +109,6 @@ describe("handleRatelimit", () => {
         await expect(promise).resolves.toBeUndefined();
     });
 });
-
-import { fetchPath, fetchJson } from "../src/utils";
 
 describe("fetchPath", () => {
     beforeEach(() => vi.stubGlobal("fetch", vi.fn()));

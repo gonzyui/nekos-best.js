@@ -31,7 +31,7 @@ export async function fetchRandom(category?: NbCategories) {
  * The main client to interact with the nekos.best API.
  */
 export class Client {
-    #ratelimitData: RatelimitData | null = null;
+    #ratelimitData: Map<string, RatelimitData> = new Map();
     #clientOptions: ClientOptions;
 
     /**
@@ -54,16 +54,21 @@ export class Client {
      * @private
      */
     async #request<T>(path: string): Promise<T> {
-        if (this.#ratelimitData != null) {
+        const bucket = path.split("?")[0];
+        const ratelimitData = this.#ratelimitData.get(bucket);
+
+        if (ratelimitData != null) {
             await handleRatelimit(
                 this.#clientOptions.ratelimitHandleMode,
-                this.#ratelimitData,
+                ratelimitData,
             );
         }
 
         const response = await fetchPath(path);
-
-        this.#ratelimitData = extractRatelimitData(response);
+        const newRatelimitData = extractRatelimitData(response);
+        if (newRatelimitData != null) {
+            this.#ratelimitData.set(bucket, newRatelimitData);
+        }
 
         return (await response.json()) as T;
     }

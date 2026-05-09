@@ -51,7 +51,7 @@ console.log(await nekosBest.fetchFile("neko"));
 console.log(await nekosBest.search("cat", "neko", 5));
 ```
 
-## Build a simple Discord Bot with [discord.js](https://www.npmjs.com/package/discord.js)
+### Build a simple Discord Bot with [discord.js](https://www.npmjs.com/package/discord.js)
 
 ```js
 import { Client as DiscordClient } from "discord.js";
